@@ -23,7 +23,7 @@ export async function PATCH(
     }
 
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const store = await prismadb.store.updateMany({
@@ -56,7 +56,7 @@ export async function DELETE(
     }
 
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const store = await prismadb.store.deleteMany({

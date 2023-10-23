@@ -19,15 +19,15 @@ export async function POST(
     }
 
     if (!label) {
-      return new NextResponse("Label is required", { status: 400 });
+      return new NextResponse("Reikalingas pavadinimas", { status: 400 });
     }
 
     if (!imageUrl) {
-      return new NextResponse("Image URL is required", { status: 400 });
+      return new NextResponse("Reikalingas paveikslėlio URL", { status: 400 });
     }
 
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -62,7 +62,7 @@ export async function GET(
 ) {
   try {
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const billboards = await prismadb.billboard.findMany({

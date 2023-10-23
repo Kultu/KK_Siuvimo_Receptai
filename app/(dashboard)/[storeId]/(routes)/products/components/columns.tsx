@@ -19,31 +19,31 @@ export type ProductColumn = {
 export const columns: ColumnDef<ProductColumn>[] = [
   {
     accessorKey: "name",
-    header: "Name",
+    header: "Pavadinimas",
   },
   {
     accessorKey: "isArchived",
-    header: "Archived",
+    header: "Archyvuotas",
   },
   {
     accessorKey: "isFeatured",
-    header: "Featured",
+    header: "Reklamuojamas",
   },
   {
     accessorKey: "price",
-    header: "Price",
+    header: "Kaina",
   },
   {
     accessorKey: "category",
-    header: "Category",
+    header: "Kategorija",
   },
   {
     accessorKey: "size",
-    header: "Size",
+    header: "Dydis",
   },
   {
     accessorKey: "color",
-    header: "Color",
+    header: "Spalva",
     cell: ({ row }) => (
       <div className="flex items-center gap-x-2">
         {row.original.color}

@@ -62,10 +62,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit product' : 'Create product';
-  const description = initialData ? 'Edit a product.' : 'Add a new product';
-  const toastMessage = initialData ? 'Product updated.' : 'Product created.';
-  const action = initialData ? 'Save changes' : 'Create';
+  const title = initialData ? 'Redaguoti produktą' : 'Sukurti produktą';
+  const description = initialData ? 'Redaguoti produktą.' : 'Sukurti produktą';
+  const toastMessage = initialData ? 'Produktas atnaujintas.' : 'Produktas sukurtas.';
+  const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
   const defaultValues = initialData ? {
     ...initialData,
@@ -110,7 +110,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
       router.refresh();
       router.push(`/${params.storeId}/products`);
-      toast.success('Product deleted.');
+      toast.success('Produktas pašalintas.');
     } catch (error: any) {
       toast.error('Something went wrong.');
     } finally {
@@ -148,7 +148,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             name="images"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Images</FormLabel>
+                <FormLabel>Paveikslėliai</FormLabel>
                 <FormControl>
                   <ImageUpload 
                     value={field.value.map((image) => image.url)} 
@@ -167,7 +167,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Pavadinimas</FormLabel>
                   <FormControl>
                     <Input disabled={loading} placeholder="Product name" {...field} />
                   </FormControl>
@@ -180,7 +180,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Price</FormLabel>
+                  <FormLabel>Kaina</FormLabel>
                   <FormControl>
                     <Input type="number" disabled={loading} placeholder="9.99" {...field} />
                   </FormControl>
@@ -193,7 +193,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="categoryId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Category</FormLabel>
+                  <FormLabel>Kategorija</FormLabel>
                   <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -215,7 +215,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="sizeId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Size</FormLabel>
+                  <FormLabel>Dydis</FormLabel>
                   <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -237,7 +237,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               name="colorId"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Color</FormLabel>
+                  <FormLabel>Spalva</FormLabel>
                   <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -268,10 +268,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      Featured
+                      Reklamuojamas
                     </FormLabel>
                     <FormDescription>
-                      This product will appear on the home page
+                      Šis produktas bus rodomas pagrindiniame puslapyje
                     </FormDescription>
                   </div>
                 </FormItem>
@@ -294,7 +294,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       Archived
                     </FormLabel>
                     <FormDescription>
-                      This product will not appear anywhere in the store.
+                      Šis produktas bus paslėptas.
                     </FormDescription>
                   </div>
                 </FormItem>

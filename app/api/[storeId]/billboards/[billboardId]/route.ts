@@ -81,11 +81,11 @@ export async function PATCH(
     }
 
     if (!label) {
-      return new NextResponse("Label is required", { status: 400 });
+      return new NextResponse("Reikalingas pavadinimas", { status: 400 });
     }
 
     if (!imageUrl) {
-      return new NextResponse("Image URL is required", { status: 400 });
+      return new NextResponse("Reikalingas paveikslėlio URL", { status: 400 });
     }
 
     if (!params.billboardId) {

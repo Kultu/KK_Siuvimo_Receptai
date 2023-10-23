@@ -27,7 +27,7 @@ export async function POST(
     }
 
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -62,7 +62,7 @@ export async function GET(
 ) {
   try {
     if (!params.storeId) {
-      return new NextResponse("Store id is required", { status: 400 });
+      return new NextResponse("Reikalingas parduotuvės ID", { status: 400 });
     }
 
     const sizes = await prismadb.size.findMany({
