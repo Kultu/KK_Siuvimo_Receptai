@@ -44,10 +44,10 @@ export const SizeForm: React.FC<SizeFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit size' : 'Create size';
-  const description = initialData ? 'Edit a size.' : 'Add a new size';
-  const toastMessage = initialData ? 'Size updated.' : 'Size created.';
-  const action = initialData ? 'Save changes' : 'Create';
+  const title = initialData ? 'Redaguoti' : 'Sukurti';
+  const description = initialData ? 'Redaguoti' : 'Sukurti naują';
+  const toastMessage = initialData ? 'Atnaujinta.' : 'Sukurta.';
+  const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
   const form = useForm<SizeFormValues>({
     resolver: zodResolver(formSchema),

@@ -84,7 +84,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
       router.refresh();
       router.push(`/${params.storeId}/categories`);
-      toast.success('Category deleted.');
+      toast.success('Kategorija pašalinta.');
     } catch (error: any) {
       toast.error('Pašalinkite visus produktus, kurie naudoja šią kategoriją.');
     } finally {

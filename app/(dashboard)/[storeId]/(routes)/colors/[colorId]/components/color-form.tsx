@@ -46,10 +46,10 @@ export const ColorForm: React.FC<ColorFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Edit color' : 'Create color';
-  const description = initialData ? 'Edit a color.' : 'Add a new color';
-  const toastMessage = initialData ? 'Color updated.' : 'Color created.';
-  const action = initialData ? 'Save changes' : 'Create';
+  const title = initialData ? 'Redaguoti' : 'Sukurti';
+  const description = initialData ? 'Redaguoti.' : 'Sukurti';
+  const toastMessage = initialData ? 'Atnaujinta.' : 'Sukurta.';
+  const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
   const form = useForm<ColorFormValues>({
     resolver: zodResolver(formSchema),
@@ -121,7 +121,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Pavadinimas</FormLabel>
                   <FormControl>
                     <Input disabled={loading} placeholder="Color name" {...field} />
                   </FormControl>
@@ -134,7 +134,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
               name="value"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Value</FormLabel>
+                  <FormLabel>Reikšmė</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-x-4">
                       <Input disabled={loading} placeholder="Color value" {...field} />

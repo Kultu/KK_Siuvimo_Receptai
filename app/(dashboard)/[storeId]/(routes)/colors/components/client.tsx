@@ -24,7 +24,7 @@ export const ColorClient: React.FC<ColorClientProps> = ({
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading title={`Colors (${data.length})`} description="Manage colors for your products" />
+        <Heading title={`Spalvos (${data.length})`} description="Spalvų valdymas" />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
           <Plus className="mr-2 h-4 w-4" />Sukurti naują
         </Button>

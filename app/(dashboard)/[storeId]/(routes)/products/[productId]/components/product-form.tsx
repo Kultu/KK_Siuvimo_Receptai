@@ -291,7 +291,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      Archived
+                      Archyvuotas
                     </FormLabel>
                     <FormDescription>
                       Šis produktas bus paslėptas.
