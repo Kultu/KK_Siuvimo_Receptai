@@ -34,10 +34,10 @@ export const CellAction: React.FC<CellActionProps> = ({
     try {
       setLoading(true);
       await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
-      toast.success('Size deleted.');
+      toast.success('Dydis pašalintas.');
       router.refresh();
     } catch (error) {
-      toast.error('Make sure you removed all products using this size first.');
+      toast.error('Pašalinkite visus produktus, kurie naudoja šį dydį.');
     } finally {
       setOpen(false);
       setLoading(false);
@@ -46,7 +46,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Size ID copied to clipboard.');
+    toast.success('Dydžio ID nukopijuotas.');
   }
 
   return (
@@ -65,7 +65,7 @@ export const CellAction: React.FC<CellActionProps> = ({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Veiksmai</DropdownMenuLabel>
           <DropdownMenuItem
             onClick={() => onCopy(data.id)}
           >
@@ -74,12 +74,12 @@ export const CellAction: React.FC<CellActionProps> = ({
           <DropdownMenuItem
             onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}
           >
-            <Edit className="mr-2 h-4 w-4" />Redaguoti
+            <Edit className="mr-2 h-4 w-4" /> Redaguoti
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setOpen(true)}
           >
-            <Trash className="mr-2 h-4 w-4" />Šalinti
+            <Trash className="mr-2 h-4 w-4" />  Šalinti
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

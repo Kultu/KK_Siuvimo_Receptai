@@ -47,7 +47,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Category ID copied to clipboard.');
+    toast.success('Kategorijos ID nukopijuotas.');
   }
 
   return (
@@ -66,7 +66,7 @@ export const CellAction: React.FC<CellActionProps> = ({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Veiksmai</DropdownMenuLabel>
           <DropdownMenuItem
             onClick={() => onCopy(data.id)}
           >
@@ -75,12 +75,12 @@ export const CellAction: React.FC<CellActionProps> = ({
           <DropdownMenuItem
             onClick={() => router.push(`/${params.storeId}/categories/${data.id}`)}
           >
-            <Edit className="mr-2 h-4 w-4" />Redaguoti
+            <Edit className="mr-2 h-4 w-4" /> Redaguoti
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setOpen(true)}
           >
-            <Trash className="mr-2 h-4 w-4" />Šalinti
+            <Trash className="mr-2 h-4 w-4" />  Šalinti
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

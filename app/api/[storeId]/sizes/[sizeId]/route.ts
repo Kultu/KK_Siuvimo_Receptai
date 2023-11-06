@@ -9,7 +9,7 @@ export async function GET(
 ) {
   try {
     if (!params.sizeId) {
-      return new NextResponse("Size id is required", { status: 400 });
+      return new NextResponse("Reikalingas spalvos ID", { status: 400 });
     }
 
     const size = await prismadb.size.findUnique({
@@ -37,7 +37,7 @@ export async function DELETE(
     }
 
     if (!params.sizeId) {
-      return new NextResponse("Size id is required", { status: 400 });
+      return new NextResponse("Reikalingas spalvos ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -81,16 +81,16 @@ export async function PATCH(
     }
 
     if (!name) {
-      return new NextResponse("Name is required", { status: 400 });
+      return new NextResponse("Reikalingas pavadinimas", { status: 400 });
     }
 
     if (!value) {
-      return new NextResponse("Value is required", { status: 400 });
+      return new NextResponse("Reikalinga reikšmė", { status: 400 });
     }
 
 
     if (!params.sizeId) {
-      return new NextResponse("Size id is required", { status: 400 });
+      return new NextResponse("Reikalingas spalvos ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({

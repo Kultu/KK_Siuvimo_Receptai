@@ -19,7 +19,7 @@ export async function PATCH(
     }
 
     if (!name) {
-      return new NextResponse("Name is required", { status: 400 });
+      return new NextResponse("Reikalingas pavadinimas", { status: 400 });
     }
 
     if (!params.storeId) {

@@ -45,7 +45,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Redaguoti' : 'Sukurti';
-  const description = initialData ? 'Redaguoti' : 'Sukurti naują';
+  const description = initialData ? 'Redaguoti' : 'Pridėti naują dydį.';
   const toastMessage = initialData ? 'Atnaujinta.' : 'Sukurta.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
@@ -68,7 +68,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
       router.push(`/${params.storeId}/sizes`);
       toast.success(toastMessage);
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Įvyko klaida.');
     } finally {
       setLoading(false);
     }
@@ -80,9 +80,9 @@ export const SizeForm: React.FC<SizeFormProps> = ({
       await axios.delete(`/api/${params.storeId}/sizes/${params.sizeId}`);
       router.refresh();
       router.push(`/${params.storeId}/sizes`);
-      toast.success('Size deleted.');
+      toast.success('Dydis pašalintas.');
     } catch (error: any) {
-      toast.error('Make sure you removed all products using this size first.');
+      toast.error('Pašalinkite visus produktus, kurie naudoja šį dydį.');
     } finally {
       setLoading(false);
       setOpen(false);
@@ -121,7 +121,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Size name" {...field} />
+                    <Input disabled={loading} placeholder="Dydžio pavadinimas" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -134,7 +134,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
                 <FormItem>
                   <FormLabel>Value</FormLabel>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Size value" {...field} />
+                    <Input disabled={loading} placeholder="Dydžio reikšmė" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -27,7 +27,7 @@ import { AlertModal } from "@/components/modals/alert-modal"
 const formSchema = z.object({
   name: z.string().min(2),
   value: z.string().min(4).max(9).regex(/^#/, {
-    message: 'String must be a valid hex code'
+    message: 'Reikšmė turi būti spalvos HEX kodas'
   }),
 });
 
@@ -47,8 +47,8 @@ export const ColorForm: React.FC<ColorFormProps> = ({
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Redaguoti' : 'Sukurti';
-  const description = initialData ? 'Redaguoti.' : 'Sukurti';
-  const toastMessage = initialData ? 'Atnaujinta.' : 'Sukurta.';
+  const description = initialData ? 'Redaguoti spalvą.' : 'Pridėti naują spalvą.';
+  const toastMessage = initialData ? 'Atnaujinta.' : 'Spalva sukurta.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
   const form = useForm<ColorFormValues>({
@@ -70,7 +70,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
       router.push(`/${params.storeId}/colors`);
       toast.success(toastMessage);
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Įvyko klaida.');
     } finally {
       setLoading(false);
     }
@@ -82,9 +82,9 @@ export const ColorForm: React.FC<ColorFormProps> = ({
       await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
       router.refresh();
       router.push(`/${params.storeId}/colors`);
-      toast.success('Color deleted.');
+      toast.success('Spalva pašalinta.');
     } catch (error: any) {
-      toast.error('Make sure you removed all products using this color first.');
+      toast.error('Pašalinkite visus produktus, kurie naudoja šią spalvą.');
     } finally {
       setLoading(false);
       setOpen(false);
@@ -123,7 +123,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                 <FormItem>
                   <FormLabel>Pavadinimas</FormLabel>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Color name" {...field} />
+                    <Input disabled={loading} placeholder="Spalvos pavadinimas" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -137,7 +137,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                   <FormLabel>Reikšmė</FormLabel>
                   <FormControl>
                     <div className="flex items-center gap-x-4">
-                      <Input disabled={loading} placeholder="Color value" {...field} />
+                      <Input disabled={loading} placeholder="Spalvos HEX kodas" {...field} />
                       <div 
                         className="border p-4 rounded-full" 
                         style={{ backgroundColor: field.value }}

@@ -48,7 +48,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Redaguoti kategoriją' : 'Sukurti kategoriją';
-  const description = initialData ? 'Redaguoti kategoriją' : 'Sukurti kategoriją';
+  const description = initialData ? 'Redaguoti kategoriją' : 'Pridėti naują kategoriją';
   const toastMessage = initialData ? 'Kategorija atnaujinta.' : 'Kategorija sukurta.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
@@ -72,7 +72,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       router.push(`/${params.storeId}/categories`);
       toast.success(toastMessage);
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Įvyko klaida.');
     } finally {
       setLoading(false);
     }

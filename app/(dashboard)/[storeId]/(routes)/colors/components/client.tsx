@@ -2,12 +2,10 @@
 
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/ui/data-table";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { ApiList } from "@/components/ui/api-list";
 
 import { columns, ColorColumn } from "./columns";
 

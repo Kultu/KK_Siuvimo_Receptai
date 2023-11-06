@@ -9,7 +9,7 @@ export async function GET(
 ) {
   try {
     if (!params.categoryId) {
-      return new NextResponse("Category id is required", { status: 400 });
+      return new NextResponse("Reikalingas kategorijos ID", { status: 400 });
     }
 
     const category = await prismadb.category.findUnique({
@@ -40,7 +40,7 @@ export async function DELETE(
     }
 
     if (!params.categoryId) {
-      return new NextResponse("Category id is required", { status: 400 });
+      return new NextResponse("Reikalingas kategorijos ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -84,15 +84,15 @@ export async function PATCH(
     }
 
     if (!billboardId) {
-      return new NextResponse("Billboard ID is required", { status: 400 });
+      return new NextResponse("Reikalingas lentelės ID", { status: 400 });
     }
 
     if (!name) {
-      return new NextResponse("Name is required", { status: 400 });
+      return new NextResponse("Reikalingas pavadinimas", { status: 400 });
     }
 
     if (!params.categoryId) {
-      return new NextResponse("Category id is required", { status: 400 });
+      return new NextResponse("Reikalingas kategorijos ID", { status: 400 });
     }
 
     const storeByUserId = await prismadb.store.findFirst({

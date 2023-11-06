@@ -63,7 +63,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? 'Redaguoti produktą' : 'Sukurti produktą';
-  const description = initialData ? 'Redaguoti produktą.' : 'Sukurti produktą';
+  const description = initialData ? 'Redaguoti produktą.' : 'Pridėti naują produktą.';
   const toastMessage = initialData ? 'Produktas atnaujintas.' : 'Produktas sukurtas.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
@@ -98,7 +98,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       router.push(`/${params.storeId}/products`);
       toast.success(toastMessage);
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Įvyko klaida.');
     } finally {
       setLoading(false);
     }
@@ -112,7 +112,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
       router.push(`/${params.storeId}/products`);
       toast.success('Produktas pašalintas.');
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Įvyko klaida.');
     } finally {
       setLoading(false);
       setOpen(false);
@@ -169,7 +169,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormItem>
                   <FormLabel>Pavadinimas</FormLabel>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Product name" {...field} />
+                    <Input disabled={loading} placeholder="Produkto pavadinimas" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -197,7 +197,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue defaultValue={field.value} placeholder="Select a category" />
+                        <SelectValue defaultValue={field.value} placeholder="Pasirinkite kategoriją" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
