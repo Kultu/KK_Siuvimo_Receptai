@@ -46,7 +46,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Redaguoti' : 'Sukurti';
+  const title = initialData ? 'Redaguoti spalvą' : 'Sukurti spalvą';
   const description = initialData ? 'Redaguoti spalvą.' : 'Pridėti naują spalvą.';
   const toastMessage = initialData ? 'Atnaujinta.' : 'Spalva sukurta.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';

@@ -45,8 +45,8 @@ export const StoreModal = () => {
 
   return (
     <Modal
-      title="Create store"
-      description="Add a new store to manage products and categories."
+      title="Sukurti parduotuvę"
+      description="Pridėti naują parduotuvę."
       isOpen={storeModal.isOpen} 
       onClose={storeModal.onClose}
     >
@@ -60,9 +60,9 @@ export const StoreModal = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>Parduotuvės pavadinimas</FormLabel>
                       <FormControl>
-                        <Input disabled={loading} placeholder="E-Commerce" {...field} />
+                        <Input disabled={loading} placeholder="E-Prekyba" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -72,7 +72,7 @@ export const StoreModal = () => {
                   <Button disabled={loading} variant="outline" onClick={storeModal.onClose}>
                     Cancel
                   </Button>
-                  <Button disabled={loading} type="submit">Continue</Button>
+                  <Button disabled={loading} type="submit">Tęsti</Button>
                 </div>
               </form>
             </Form>

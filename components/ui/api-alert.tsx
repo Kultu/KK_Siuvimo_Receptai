@@ -13,7 +13,7 @@ interface ApiAlertProps {
 
 
 const textMap: Record<ApiAlertProps["variant"], string> = {
-  public: 'Public',
+  public: 'Viešas',
   admin: 'Admin'
 };
 
@@ -29,7 +29,7 @@ export const ApiAlert: React.FC<ApiAlertProps> = ({
 }) => {
   const onCopy = (description: string) => {
     navigator.clipboard.writeText(description);
-    toast.success('API Route copied to clipboard.');
+    toast.success('API nuoroda nukopijuota.');
   }
 
   return ( 

@@ -12,6 +12,7 @@ import { useParams, useRouter } from "next/navigation"
 
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import Tiptap from "@/components/tiptap"
 import {
   Form,
   FormControl,
@@ -35,6 +36,7 @@ const formSchema = z.object({
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
   sizeId: z.string().min(1),
+  description: z.string().min(1),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional()
 });
@@ -79,6 +81,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     sizeId: '',
     isFeatured: false,
     isArchived: false,
+    description: ''
   }
 
   const form = useForm<ProductFormValues>({
@@ -182,7 +185,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 <FormItem>
                   <FormLabel>Kaina</FormLabel>
                   <FormControl>
-                    <Input type="number" disabled={loading} placeholder="9.99" {...field} />
+                    <Input type="number" disabled={loading} placeholder="19.99" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -250,6 +253,19 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       ))}
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Aprašymas</FormLabel>
+                  <FormControl>
+                    <Tiptap value={field.value} onValueChange={field.onChange}/>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

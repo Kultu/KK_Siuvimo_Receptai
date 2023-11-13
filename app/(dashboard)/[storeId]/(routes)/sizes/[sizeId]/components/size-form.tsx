@@ -44,8 +44,8 @@ export const SizeForm: React.FC<SizeFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? 'Redaguoti' : 'Sukurti';
-  const description = initialData ? 'Redaguoti' : 'Pridėti naują dydį.';
+  const title = initialData ? 'Redaguoti dydį' : 'Sukurti dydį';
+  const description = initialData ? 'Redaguoti dydį' : 'Pridėti naują dydį.';
   const toastMessage = initialData ? 'Atnaujinta.' : 'Sukurta.';
   const action = initialData ? 'Išsaugoti' : 'Sukurti';
 
@@ -119,7 +119,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Pavadinimas</FormLabel>
                   <FormControl>
                     <Input disabled={loading} placeholder="Dydžio pavadinimas" {...field} />
                   </FormControl>
@@ -132,7 +132,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
               name="value"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Value</FormLabel>
+                  <FormLabel>Reikšmė</FormLabel>
                   <FormControl>
                     <Input disabled={loading} placeholder="Dydžio reikšmė" {...field} />
                   </FormControl>
