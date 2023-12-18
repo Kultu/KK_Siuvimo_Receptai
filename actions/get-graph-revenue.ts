@@ -22,36 +22,32 @@ export const getGraphRevenue = async (storeId: string): Promise<GraphData[]> => 
 
   const monthlyRevenue: { [key: number]: number } = {};
 
-  // Grouping the orders by month and summing the revenue
   for (const order of paidOrders) {
-    const month = order.createdAt.getMonth(); // 0 for Jan, 1 for Feb, ...
+    const month = order.createdAt.getMonth();
     let revenueForOrder = 0;
 
     for (const item of order.orderItems) {
       revenueForOrder += item.product.price.toNumber();
     }
 
-    // Adding the revenue for this order to the respective month
     monthlyRevenue[month] = (monthlyRevenue[month] || 0) + revenueForOrder;
   }
 
-  // Converting the grouped data into the format expected by the graph
   const graphData: GraphData[] = [
-    { name: "Sausis", total: 20 },
-    { name: "Vasaris", total: 0 },
-    { name: "Kovas", total: 40 },
-    { name: "Balandis", total: 34 },
-    { name: "Gegužė", total: 156 },
-    { name: "Birželis", total: 14 },
-    { name: "Liepa", total: 84 },
-    { name: "Rugpjūtis", total: 0 },
-    { name: "Rugsėjis", total: 0 },
-    { name: "Spalis", total: 46 },
-    { name: "Lapkritis", total: 0 },
-    { name: "Gruodis", total: 0 },
+    { name: "Sausis", total: monthlyRevenue[0] },
+    { name: "Vasaris", total: monthlyRevenue[1] },
+    { name: "Kovas", total: monthlyRevenue[2] },
+    { name: "Balandis", total: monthlyRevenue[3] },
+    { name: "Gegužė", total: monthlyRevenue[4] },
+    { name: "Birželis", total: monthlyRevenue[5] },
+    { name: "Liepa", total: monthlyRevenue[6] },
+    { name: "Rugpjūtis", total: monthlyRevenue[7] },
+    { name: "Rugsėjis", total: monthlyRevenue[8] },
+    { name: "Spalis", total: monthlyRevenue[9] },
+    { name: "Lapkritis", total: monthlyRevenue[10] },
+    { name: "Gruodis", total: monthlyRevenue[11] },
   ];
 
-  // Filling in the revenue data
   for (const month in monthlyRevenue) {
     graphData[parseInt(month)].total = monthlyRevenue[parseInt(month)];
   }

@@ -90,7 +90,6 @@ model Order {
   @@index([storeId])
 }
 
-// Intermediary for a many-to-many relationship
 model OrderItem {
   id        String  @id @default(uuid())
   orderId   String  // Foreign Key to Order

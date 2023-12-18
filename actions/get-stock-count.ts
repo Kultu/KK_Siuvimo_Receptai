@@ -8,5 +8,5 @@ export const getStockCount = async (storeId: string) => {
     }
   });
 
-  return 13;
+  return stockCount;
 };

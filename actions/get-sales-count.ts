@@ -8,5 +8,5 @@ export const getSalesCount = async (storeId: string) => {
     },
   });
 
-  return 55;
+  return salesCount;
 };

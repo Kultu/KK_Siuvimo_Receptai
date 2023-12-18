@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
+import { lt } from "date-fns/locale";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -21,7 +22,7 @@ export async function POST(
   const { productIds } = await req.json();
 
   if (!productIds || productIds.length === 0) {
-    return new NextResponse("Product ids are required", { status: 400 });
+    return new NextResponse("Reikalingi produkto ID", { status: 400 });
   }
 
   const products = await prismadb.product.findMany({
@@ -38,11 +39,11 @@ export async function POST(
     line_items.push({
       quantity: 1,
       price_data: {
-        currency: 'USD',
+        currency: 'EUR',
         product_data: {
           name: product.name,
         },
-        unit_amount: product.price.toNumber() * 100
+        unit_amount_decimal: (product.price.toNumber() * 100).toPrecision(4)
       }
     });
   });
@@ -75,6 +76,7 @@ export async function POST(
     metadata: {
       orderId: order.id
     },
+    locale:"lt"
   });
 
   return NextResponse.json({ url: session.url }, {
